@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ISA Community</title>
+
+<style>
+
+/* ================== ANIMASI OPENING (TIDAK DIUBAH STYLE TEKS) ================== */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Opening Section */
+#opening {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: black;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Bintang buatan sendiri */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 0.2; }
+    to { opacity: 1; }
+}
+
+/* Animasi teks ASLI kamu */
+#opening h1, 
+#opening h2, 
+#opening h3 {
+    color: white;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+#opening h1 { animation-delay: 0.5s; font-size: 40px; }
+#opening h2 { animation-delay: 1.5s; font-size: 50px; color: cyan; }
+#opening h3 { animation-delay: 2.5s; font-size: 25px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#opening h2 {
+    text-shadow: 0 0 10px cyan,
+                 0 0 20px cyan,
+                 0 0 40px cyan;
+}
+
+/* ================== FORM (TIDAK DIUBAH) ================== */
+
+#formSection {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#formSection {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #111 0%, #000 60%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+#formSection::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0,255,255,0.2), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(140,0,255,0.2), transparent 40%);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    font-size: 38px;
+    background: linear-gradient(90deg, #00ffff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title p {
+    color: #aaa;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.card {
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(0,255,255,0.3);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,255,255,0.15);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.radio-option {
+    background: #111;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.radio-option.selected {
+    border: 1px solid #00ffff;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #00ffff, #a855f7);
+    color: black;
+    font-weight: bold;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+</style>
+</head>
+<body>
+
+<!-- OPENING -->
+<div id="opening">
+    <h1>Welcome To</h1>
+    <h2>Isa Community</h2>
+    <h3>Indonesian Space Astronomy</h3>
+</div>
+
+<!-- FORM -->
+<div id="formSection">
+    <div class="container">
+        <div class="title">
+            <h1>ISA Community</h1>
+            <p>Indonesian Space Astronomy • Join The Galaxy</p>
+        </div>
+
+        <div class="card">
+            <form id="registrationForm">
+                <label>Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap">
+
+                <label>Umur</label>
+                <input type="number" id="umur" placeholder="Contoh: 16">
+
+                <label>Status</label>
+                <div class="radio-group">
+                    <div class="radio-option">Pelajar</div>
+                    <div class="radio-option">Mahasiswa</div>
+                    <div class="radio-option">Pekerja</div>
+                    <div class="radio-option">Lainnya</div>
+                </div>
+
+                <label>Alasan Bergabung</label>
+                <textarea id="alasan" rows="3"></textarea>
+
+                <label>Pengetahuan Astronomi</label>
+                <textarea id="astro" rows="3"></textarea>
+
+                <label>Username TikTok</label>
+                <input type="text" id="tiktok" placeholder="@username">
+
+                <button type="submit">Kirim Pendaftaran 🚀</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            © 2026 ISA Community • Explore The Universe
+        </div>
+    </div>
+</div>
+
+<script>
+
+/* Buat 200 bintang */
+for(let i=0;i<200;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDelay=Math.random()*2+"s";
+    document.getElementById("opening").appendChild(star);
+}
+
+/* Setelah 5 detik pindah ke form */
+setTimeout(function(){
+    document.getElementById("opening").style.display="none";
+    document.getElementById("formSection").style.display="flex";
+},5000);
+
+/* Pilih status */
+let statusDipilih = "";
+document.querySelectorAll(".radio-option").forEach(option=>{
+    option.addEventListener("click",function(){
+        document.querySelectorAll(".radio-option").forEach(o=>o.classList.remove("selected"));
+        this.classList.add("selected");
+        statusDipilih = this.innerText;
+    });
+});
+
+/* Kirim ke WhatsApp */
+document.getElementById("registrationForm").addEventListener("submit",function(e){
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let umur = document.getElementById("umur").value;
+    let alasan = document.getElementById("alasan").value;
+    let astro = document.getElementById("astro").value;
+    let tiktok = document.getElementById("tiktok").value;
+
+    let pesan = `PENDAFTARAN ISA COMMUNITY 🚀%0A%0A` +
+                `Nama: ${nama}%0A` +
+                `Umur: ${umur}%0A` +
+                `Status: ${statusDipilih}%0A` +
+                `Alasan: ${alasan}%0A` +
+                `Pengetahuan Astronomi: ${astro}%0A` +
+                `TikTok: ${tiktok}`;
+
+    window.open(`https://wa.me/6289654672195?text=${pesan}`,'_blank');
+});
+
+</script>
+
+</body>
+  </html>
